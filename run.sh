@@ -3,14 +3,14 @@
 # ref. https://blog.kamipo.net/entry/2013/02/20/122225
 #
 
-if which python3 > /dev/null 2>&1; then
-  # echo python3
-  true
+if ! which python3 > /dev/null 2>&1; then
+  echo 'requires `python3`'
+  exit 1
 fi
 
-if which ngrok > /dev/null 2>&1; then
-  # echo ngrok
-  true
+if ! which ngrok > /dev/null 2>&1; then
+  echo 'requires `ngrok`'
+  exit 1
 fi
 
 python3 -m http.server 5000 > /dev/null 2>&1 &
